@@ -1,0 +1,5 @@
+Entity\exceptions\IllegalOrphanException.class
+com\mycompany\proje2\Message.class
+Entity\exceptions\PreexistingEntityException.class
+Entity\exceptions\NonexistentEntityException.class
+com\mycompany\proje2\Message_.class
