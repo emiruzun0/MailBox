@@ -82,23 +82,23 @@ public class Main implements Serializable {
         Query query = em.createNamedQuery("Message.findAll");
         List<Message> result = query.getResultList();
         DefaultListModel model = new DefaultListModel();
-        for(int i = 0;i<result.size();++i) model.addElement(String.valueOf(result.get(i).getMessageID() +
-                " - " + result.get(i).getMessageFrom()));
+        /*for(int i = 0;i<result.size();++i) model.addElement(String.valueOf(result.get(i).getMessageID() +
+                " - " + result.get(i).getMessageFrom()));*/
+        for(int i = 0;i<result.size();++i) model.addElement(String.valueOf(result.get(i).getMessageID()));
         jlist.setModel(model);
 
     }
 
-    public static String findMessageObject(String messageID) {
-        em.getTransaction().begin();
+    public static Message findMessageObject(String messageID) {
         
-       // Message message = em.createNamedQuery("Message.findByMessageID").setParameter("messageID", Integer.parseInt(messageID)).
-//                getSingleResult();
+        Message message = (Message) em.createNamedQuery("Message.findByMessageID").setParameter("messageID", Integer.parseInt(messageID)).
+                getSingleResult();
         
         //return result.get(0).toString();
         
         
-        em.getTransaction().commit();
-        return null;
+        
+        return message;
     }
     
     
